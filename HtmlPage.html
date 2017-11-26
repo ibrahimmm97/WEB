@@ -1,0 +1,197 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>deneme</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+ <script src="WebSite1/js/jquery-3.2.1.min.js"></script>
+    <script src="WebSite1/js/bootstrap.js"></script>
+    <link rel="stylesheet" href="WebSite1/css/bootstrap.css">
+</head>
+
+ 
+<body style="background-color:white;">
+
+    <div style="background-color:#3779e8" class="navbar navbar-default navbar-static-top">
+        <div class="container">
+            <button class="navbar-toggle" data-toggle="collapse" data-target=".acKapa"><div class="glyphicon glyphicon-list"></div> </button>
+            <center>  <a href="#" class="navbar-brand"><font size="5" color="#202225"><b>Yeni xyz Dosya Depolama Servisiniz </b></font> </a></center>
+            <div class="collapse navbar-collapse acKapa">
+                <button id="btnIletisim" class="btn btn-success navbar-brand navbar-right"><font size="5"> İletişim</font></button>
+                <div id="iletiForm" class="alert alert-info">
+                    <h2>İletişim Formu</h2>
+                    <label>Adı Soyadı</label>
+                    <input type="text" class="form-control">
+                    <label>E-Posta</label>
+                    <input type="text" class="form-control">
+                    <label>Mesajınız</label>
+                    <textarea class="form-control" rows="3"></textarea>
+                    <br>
+                    <button id="btnGonder" class="btn btn-success">Gönder</button>
+                    <button id="btnVazgec" class="btn btn-danger">Vazgeç</button>
+                    <button id="btnTemizle" class="btn btn-warning">Temizle</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class='container'>
+        <style>
+            #searchform {
+                width: 300px
+            }
+
+            .txtSearch {
+                width: 160px;
+                margin: -2px 0 9px 9px;
+                background-position: 0 -29px
+            }
+
+            .txtSubscribe, .txtSearch {
+                width: 50%;
+                height: 40px;
+                float: left;
+                background: url('http://o1308.hizliresim.com/1d/3/r2znp.png') no-repeat;
+                margin-top: 10px;
+                padding-left: 40px
+            }
+
+            .input-text {
+                font-size: 11px;
+                border: 1px solid #dadada;
+                border-radius: 3px;
+                box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.07) inset;
+            }
+        </style>
+        <input type="text" class="txtSearch input-text" name="q" placeholder="Dosyalarımda ara" x-webkit-speech="x-webkit-speech" onwebkitspeechchange="this.form.submit();" />
+
+    </div><div class='clear'></div>
+    <hr style="background-color: black; height: 4px; width: 2000px;" />
+    <div class="" style="margin-top:0px; ">
+        <ul class="nav nav-pills nav-stacked navbar-left ">
+            <li role="presentation"><a href="#"><div class="glyphicon glyphicon-folder-open"></div>   Dosyalarım <span class="badge">4</span></a></li>
+            <li role="presentation" class="active"><a href="#"><div class="glyphicon glyphicon-level-up"></div>  Yeni Klasör Oluştur</a></li>
+            <li role="presentation"><a href="#"><div class="glyphicon glyphicon-cloud-upload"></div>   Dosya Yükleme</a></li>
+            <li role="presentation"><a href="#"><div class="glyphicon glyphicon-cloud-download"></div>  Dosya İndir</a></li>
+        </ul>
+    </div>
+    
+    <hr style="width:4px; height: 200px; float:left; background-color: #FF0000; " />
+
+    <div class="container" style="margin-top:50px;">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Klasör Ekle</h1>
+                <label>Klasör İsmi</label>
+                <input type="text" id="txtklasörismi" class="form-control">
+                <label>Ayrılan Alan (GB)</label>
+                <input type="text" id="txtalan" class="form-control" >
+                <br>
+                <button id="btnKaydet" class="btn btn-primary">Kaydet</button>
+                <hr>
+                <div id="sonuc"></div>
+
+            </div>
+            <div class="col-md-12">
+                <h1>Dosyalarım</h1>
+                <table class="table table-hover" id="tbdosyalar">
+                    <tr class="bg-info">
+
+                        <td>Klarsör ismi</td>
+                        <td>Ayrılan Alan (GB) </td>
+                        <td>Sil</td>
+                    </tr>
+                    <tr>
+
+                        <td>Apple Fotolar</td>
+                        <td>10</td>
+                        <td>
+                            <button class="btn btn-danger sil">Sil</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Android Fotolar</td>
+                        <td>10</td>
+                        <td>
+                            <button class="btn btn-danger sil">Sil</button>
+                        </td>
+                    </tr>
+                    <tr>
+
+                        <td>Yazılım Programları</td>
+                        <td>50</td>
+                        <td>
+                            <button class="btn btn-danger sil">Sil</button>
+                        </td>
+                    </tr>
+                    <tr>
+
+                        <td>Videolar</td>
+                        <td>30</td>
+                        <td>
+                            <button class="btn btn-danger sil">Sil</button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="WebSite1/js/jquery-3.2.1.min.js"></script>
+    <script>
+        $(function () {
+            $("#iletiForm").css({
+                "width": "400px",
+                "position": "fixed",
+                "top": "-500px",
+                "left": "500px"
+            });
+            $("#btnIletisim").click(function () {
+                $("#iletiForm").animate({
+                    "top": "100px",
+                    "left": "800px"
+                }, 1000);
+                return false;
+            });
+            $("#btnVazgec").click(function () {
+                $("#iletiForm").animate({
+                    "top": "500px",
+                    "left": "-500px"
+                }, 1000);
+                $("#btnTemizle").click();
+                return false;
+            });
+            $("#btnTemizle").click(function () {
+                $("input:text, textarea").val("");
+                return false;
+            });
+        });
+        $(function () {
+        $("#btnKaydet").click(function () {
+
+            var klasörismi = $("#txtklasörismi").val();
+            var alan = $("#txtalan").val();
+
+
+            if (klasörismi == "" || alan == "" ) {
+                $("#sonuc").fadeIn(1000);
+                $("#sonuc").html("Lütfen Tüm Alanları Doldurunuz!");
+                $("#sonuc").removeClass();
+                $("#sonuc").addClass("alert alert-danger");
+                $("#sonuc").fadeOut(3000);
+                return false;
+
+            }
+            $("#tbdosyalar").append("<tr><td>" + klasörismi + "</td><td>" + alan + "</td><td><button class='btn btn-danger sil'>Sil</button></td></tr>");
+        });
+
+
+        $(document).on("click", ".sil", function () {
+            var satir = $(this).closest("tr");
+            satir.remove();
+        });
+    });
+    </script>
+
+
+
+</body> 
+</html>
